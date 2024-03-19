@@ -1,0 +1,35 @@
+npm init -y
+
+npm i express
+
+npm i --save-dev nodemon
+
+En package.json -----
+"engines": {
+    "node": "version",
+    "npm":"version"
+}
+
+
+En git crear el repositorio
+Luego:
+Crear en el directorio el .gitignore y añadirle node_modules y .env
+
+git init
+
+git add .
+
+git commit -m "first commit"
+
+git branch -M main
+
+git remote add origin https://YOUR_GITHUB_URL.git
+
+git push -u origin main
+--------------------------------------------------------------------------------------------------------
+Passportjs y Google oauth
+
+npm i passport passport-google-oauth20
+--------------------------------------------------------------------------------------------------------
+
+npm i mongodb mongoose
