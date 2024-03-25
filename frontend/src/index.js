@@ -6,13 +6,25 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { BrowserRouter,Routes, Route,  } from 'react-router-dom';
+import HomeScreen from './screens/HomeScreen';
+
+
+
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Routes>
+        <Route path="/" element={<App />}>
+       
+          <Route index element={<HomeScreen />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
