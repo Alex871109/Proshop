@@ -19,11 +19,11 @@ const Product = ({ product }) => {
           <Typography gutterBottom variant="h5" component="div">
             {product.name}
           </Typography>
-          <Typography gutterBottom variant="body2" color="text.secondary">
-            {product.description}
+          <Typography gutterBottom variant="body2" color="text.secondary" sx={{ maxHeight: '6em', overflow: 'clip' }}>
+            {product.category}
           </Typography>
           <Typography  variant="body2" color="text.secondary">
-            {product.price}
+            €{product.price}
           </Typography>
         </CardContent>
       </CardActionArea>
