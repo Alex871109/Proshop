@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { Box, Button, CardActionArea, CardActions, Rating } from '@mui/material';
 
 const Product = ({ product }) => {
   return (
@@ -26,7 +26,11 @@ const Product = ({ product }) => {
           <Typography gutterBottom variant="body2" color="text.secondary" sx={{ maxHeight: '6em', overflow: 'clip' }}>
             {product.category}
           </Typography>
-          <Typography  variant="body2" color="text.secondary">
+          <Box display="flex" alignItems="center" >
+          <Rating name="rating" value={product.rating} readOnly precision={0.5} />
+          <Typography variant="body3" color="text.secondary" ml={3}> {product.numReviews} reviews</Typography>
+          </Box>
+          <Typography  variant="body2" color="text.secondary" >
             €{product.price}
           </Typography>
         </CardContent>

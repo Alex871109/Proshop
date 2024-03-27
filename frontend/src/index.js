@@ -8,6 +8,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { BrowserRouter,Routes, Route,  } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
 
 
 
@@ -22,6 +23,7 @@ root.render(
         <Route path="/" element={<App />}>
        
           <Route index element={<HomeScreen />} />
+          <Route path="/product/:id" element={<ProductScreen />} />
         </Route>
       </Routes>
     </BrowserRouter>

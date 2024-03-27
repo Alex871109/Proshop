@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -32,9 +33,11 @@ const Header = () => {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: 'none', md: 'flex' },
+              display: { xs: 'none', md: 'flex'},
+             
             }}
           >
+            <Link to={"/"} style={{ textDecoration: 'none', color: 'white', display: 'flex' }}>
             <ShopIcon
               sx={{
                 fontSize: '2rem',
@@ -50,7 +53,7 @@ const Header = () => {
               variant="h6"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
+              
               sx={{
                 mr: 2,
                 display: {
@@ -67,15 +70,19 @@ const Header = () => {
             >
               Proshop
             </Typography>
-
+            </Link>
             <Box
               sx={{
                 flexGrow: 1,
                 display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' },
               }}
             >
+              <Link to={"/cart"} style={{ textDecoration: 'none', color: 'white' }}>
               <ShoppingCartIcon sx={{ mr: 4 }} />
+              </Link>
+              <Link to={"/login"} style={{ textDecoration: 'none', color: 'white'}}>
               <PersonIcon />
+              </Link>
             </Box>
           </Box>
 
@@ -96,7 +103,6 @@ const Header = () => {
               variant="h6"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },
