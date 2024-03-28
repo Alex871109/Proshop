@@ -14,10 +14,10 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Header/>
       <Container>
     
-        <Outlet/>
+        <Outlet />
       </Container>
       <Footer />
     </>
