@@ -37,7 +37,7 @@ const Product = ({ product }) => {
       </CardActionArea>
       </Link>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" disabled={product.countInStock < 1}>
           Add to Cart
         </Button>
       </CardActions>

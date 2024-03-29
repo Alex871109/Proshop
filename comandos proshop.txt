@@ -1,5 +1,0 @@
--- Eliminar el .git oculto en frontend con comandos o manualmente mostrando archivos ocultos
-
---Mover gitignore a la raiz y quitar el / de nodemodules para que sepa que no puede incluir los nodemodules de ninguna carpeta
-
---Añadir .env a gitignore
