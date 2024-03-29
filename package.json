@@ -13,7 +13,9 @@
   "author": "Alex871109",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.2.4"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
