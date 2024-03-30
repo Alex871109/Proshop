@@ -26,6 +26,7 @@ root.render(
           <Route path="/product/:id" element={<ProductScreen />} />
         </Route>
       </Routes>
+      
     </BrowserRouter>
   </React.StrictMode>
 );
