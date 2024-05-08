@@ -8,6 +8,7 @@ const getProducts = asyncHandler(async (req, res) => {
 
 const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
+  console.log(product);
   if (product) return res.json(product);
   else {
     // NOTE: this will run if a valid ObjectId but no product was found
