@@ -1,18 +1,13 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, CircularProgress, Box } from '@mui/material';
 import Product from '../components/Product';
+import { useGetProductsQuery } from '../store';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const HomeScreen = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const { data } = await axios.get('/api/products');
-      setProducts(data);
-    };
-    fetchProducts();
-  }, []);
+  const { data: products, error, isLoading } = useGetProductsQuery();
 
   return (
     <>
@@ -26,15 +21,29 @@ const HomeScreen = () => {
           color: '#333',
         }}
       >
-        Recent Products
+        {error ? 'Server error' :' Recent Products'}
       </Typography>
-      <Grid container spacing={1}>
-        {products.map((product) => (
-          <Grid key={product._id} item xs={12} md={6} lg={4} xl={3}>
-            <Product product={product} />
-          </Grid>
-        ))}
-      </Grid>
+      {isLoading && (
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center', 
+            minHeight: '80vh',
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      )}
+      {products && (
+        <Grid container spacing={1}>
+          {products.map((product) => (
+            <Grid key={product._id} item xs={12} md={6} lg={4} xl={3}>
+              <Product product={product} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </>
   );
 };
