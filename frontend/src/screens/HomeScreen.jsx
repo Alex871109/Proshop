@@ -1,12 +1,9 @@
-import { Grid, Typography, CircularProgress, Box } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Product from '../components/Product';
 import { useGetProductsQuery } from '../store';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import Loader from '../components/Loader';
 
 const HomeScreen = () => {
-  // const [products, setProducts] = useState([]);
-
   const { data: products, error, isLoading } = useGetProductsQuery();
 
   return (
@@ -21,20 +18,11 @@ const HomeScreen = () => {
           color: '#333',
         }}
       >
-        {error ? 'Server error' :' Recent Products'}
+        {error ? 'Server error' : ' Recent Products'}
       </Typography>
-      {isLoading && (
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center', 
-            minHeight: '80vh',
-          }}
-        >
-          <CircularProgress />
-        </Box>
-      )}
+      
+      {isLoading && <Loader />}
+
       {products && (
         <Grid container spacing={1}>
           {products.map((product) => (

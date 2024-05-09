@@ -17,7 +17,7 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
- export { useGetProductsQuery,  } from './apis/productsApi';
+ export { useGetProductsQuery, useGetProductByIdQuery } from './apis/productsApi';
 // export {
 //   useFetchSurveysQuery,
 //   useAddSurveyMutation,

@@ -7,7 +7,7 @@ const productsApi = createApi({
   endpoints(builder) {
     return {
       getProducts: builder.query({
-        // providesTags: ['surveys'],
+         providesTags: ['products'],
 
         query: () => {
           return {
@@ -16,6 +16,17 @@ const productsApi = createApi({
           };
         },
       }),
+
+      getProductById: builder.query({
+        // providesTags: ['product'],
+
+       query: (id) => {
+         return {
+           url: `${PRODUCTS_URL}/${id}`,
+           method: 'GET',
+         };
+       },
+     }),
 
     //   addSurvey: builder.mutation({
     //     invalidatesTags: [{ type: 'surveys' }],
@@ -41,5 +52,5 @@ const productsApi = createApi({
   },
 });
 
-export const { useGetProductsQuery,  } = productsApi;
+export const { useGetProductsQuery, useGetProductByIdQuery } = productsApi;
 export { productsApi };
