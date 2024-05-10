@@ -1,5 +1,5 @@
 import { Rating, Box, Grid, Paper, Typography, Button } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import QuantitySelect from '../components/QuantitySelect';
 import { useGetProductByIdQuery } from '../store';
 import { useState } from 'react';
@@ -13,9 +13,18 @@ const ProductScreen = () => {
 
   return (
     <>
-    
-    {isLoading && <Loader/>}
-    {error && <Notification type={"error"} message={error?.data?.message || error.error}/>}
+      <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Button variant="contained" color="inherit" sx={{ margin: '5px 0' }}>
+          Go Back
+        </Button>
+      </Link>
+      {isLoading && <Loader />}
+      {error && (
+        <Notification
+          type={'error'}
+          message={error?.data?.message || error.error}
+        />
+      )}
       {product && (
         <Paper elevation={3} sx={{ padding: '2px', marginTop: '4px' }}>
           <Grid container sx={{ margin: '10px' }}>
