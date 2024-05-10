@@ -7,8 +7,8 @@ const productsApi = createApi({
   endpoints(builder) {
     return {
       getProducts: builder.query({
-         providesTags: ['products'],
-
+        providesTags: ['products'],
+        keepUnusedDataFor: 5,
         query: () => {
           return {
             url: PRODUCTS_URL,
@@ -19,35 +19,35 @@ const productsApi = createApi({
 
       getProductById: builder.query({
         // providesTags: ['product'],
+        keepUnusedDataFor: 5,
+        query: (id) => {
+          return {
+            url: `${PRODUCTS_URL}/${id}`,
+            method: 'GET',
+          };
+        },
+      }),
 
-       query: (id) => {
-         return {
-           url: `${PRODUCTS_URL}/${id}`,
-           method: 'GET',
-         };
-       },
-     }),
+      //   addSurvey: builder.mutation({
+      //     invalidatesTags: [{ type: 'surveys' }],
+      //     query: (survey) => {
+      //       return {
+      //         url: '/api/surveys/new',
+      //         body: survey,
+      //         method: 'POST',
+      //       };
+      //     },
+      //   }),
 
-    //   addSurvey: builder.mutation({
-    //     invalidatesTags: [{ type: 'surveys' }],
-    //     query: (survey) => {
-    //       return {
-    //         url: '/api/surveys/new',
-    //         body: survey,
-    //         method: 'POST',
-    //       };
-    //     },
-    //   }),
-
-    //   deleteSurvey: builder.mutation({
-    //     invalidatesTags: [{ type: 'surveys' }],
-    //     query: (id) => {
-    //       return {
-    //         url: `/api/surveys/delete/${id}`,
-    //         method: 'DELETE',
-    //       };
-    //     },
-    //   }),
+      //   deleteSurvey: builder.mutation({
+      //     invalidatesTags: [{ type: 'surveys' }],
+      //     query: (id) => {
+      //       return {
+      //         url: `/api/surveys/delete/${id}`,
+      //         method: 'DELETE',
+      //       };
+      //     },
+      //   }),
     };
   },
 });
