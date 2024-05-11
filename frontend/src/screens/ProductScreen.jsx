@@ -7,7 +7,7 @@ import Loader from "../components/Loader";
 import Notification from "../components/Notification";
 
 const ProductScreen = () => {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const { id: productId } = useParams();
   const { data: product, error, isLoading } = useGetProductByIdQuery(productId);
 
