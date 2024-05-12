@@ -1,23 +1,25 @@
-import { configureStore } from '@reduxjs/toolkit';
- import { productsApi } from './apis/productsApi';
+import { configureStore } from "@reduxjs/toolkit";
+import { productsApiSlice } from "./apis/productsApiSlice";
 // import { surveysApi } from './apis/surveysApi';
-import { setupListeners } from '@reduxjs/toolkit/query';
+import { setupListeners } from "@reduxjs/toolkit/query";
 
 export const store = configureStore({
   reducer: {
-     [productsApi.reducerPath]: productsApi.reducer,
+    [productsApiSlice.reducerPath]: productsApiSlice.reducer,
     // [surveysApi.reducerPath]: surveysApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware()
-      .concat(productsApi.middleware)
+    return getDefaultMiddleware().concat(productsApiSlice.middleware);
     //   .concat(surveysApi.middleware);
   },
 });
 
 setupListeners(store.dispatch);
 
- export { useGetProductsQuery, useGetProductByIdQuery } from './apis/productsApi';
+export {
+  useGetProductsQuery,
+  useGetProductByIdQuery,
+} from "./apis/productsApiSlice";
 // export {
 //   useFetchSurveysQuery,
 //   useAddSurveyMutation,
