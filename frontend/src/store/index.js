@@ -1,12 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { productsApiSlice } from "./apis/productsApiSlice";
-// import { surveysApi } from './apis/surveysApi';
+ import  { addToCart,removeFromCart, cartReducer } from "./apis/cartSlice";
+
 import { setupListeners } from "@reduxjs/toolkit/query";
 
 export const store = configureStore({
   reducer: {
     [productsApiSlice.reducerPath]: productsApiSlice.reducer,
-    // [surveysApi.reducerPath]: surveysApi.reducer,
+     cart: cartReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(productsApiSlice.middleware);
@@ -20,8 +21,5 @@ export {
   useGetProductsQuery,
   useGetProductByIdQuery,
 } from "./apis/productsApiSlice";
-// export {
-//   useFetchSurveysQuery,
-//   useAddSurveyMutation,
-//   useDeleteSurveyMutation,
-// } from './apis/surveysApi';
+ export {addToCart, removeFromCart} 
+
