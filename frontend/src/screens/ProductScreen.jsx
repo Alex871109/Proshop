@@ -1,8 +1,9 @@
 import { Rating, Box, Grid, Paper, Typography, Button } from "@mui/material";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import QuantitySelect from "../components/QuantitySelect";
-import { useGetProductByIdQuery } from "../store";
+import { addToCart, useGetProductByIdQuery } from "../store";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import Loader from "../components/Loader";
 import Notification from "../components/Notification";
 
@@ -10,6 +11,12 @@ const ProductScreen = () => {
   const [quantity, setQuantity] = useState(1);
   const { id: productId } = useParams();
   const { data: product, error, isLoading } = useGetProductByIdQuery(productId);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const addToCartHandler = ()=>{
+    dispatch(addToCart({ ...product, qty: quantity }));
+  }
 
   return (
     <>
@@ -77,7 +84,10 @@ const ProductScreen = () => {
               </Box>
 
               <Box display="flex" alignItems="center" mt={2}>
-                <Button disabled={product.countInStock < 1}>
+                <Button
+                  disabled={product.countInStock < 1}
+                  onClick={addToCartHandler}
+                >
                   {" "}
                   Add to Cart
                 </Button>
