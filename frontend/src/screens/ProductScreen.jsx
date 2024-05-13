@@ -1,11 +1,11 @@
-import { Rating, Box, Grid, Paper, Typography, Button } from "@mui/material";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import QuantitySelect from "../components/QuantitySelect";
-import { addToCart, useGetProductByIdQuery } from "../store";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import Loader from "../components/Loader";
-import Notification from "../components/Notification";
+import { Rating, Box, Grid, Paper, Typography, Button } from '@mui/material';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import QuantitySelect from '../components/QuantitySelect';
+import { addToCart, useGetProductByIdQuery } from '../store';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import Loader from '../components/Loader';
+import Notification from '../components/Notification';
 
 const ProductScreen = () => {
   const [quantity, setQuantity] = useState(1);
@@ -14,32 +14,33 @@ const ProductScreen = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const addToCartHandler = ()=>{
+  const addToCartHandler = () => {
+    console.log('qty:', quantity);
     dispatch(addToCart({ ...product, qty: quantity }));
-  }
+  };
 
   return (
     <>
-      <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
-        <Button variant="contained" color="inherit" sx={{ margin: "5px 0" }}>
+      <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Button variant="contained" color="inherit" sx={{ margin: '5px 0' }}>
           Go Back
         </Button>
       </Link>
       {isLoading && <Loader />}
       {error && (
         <Notification
-          type={"error"}
+          type={'error'}
           message={error?.data?.message || error.error}
         />
       )}
       {product && (
-        <Paper elevation={3} sx={{ padding: "2px", marginTop: "4px" }}>
-          <Grid container sx={{ margin: "10px" }}>
+        <Paper elevation={3} sx={{ padding: '2px', marginTop: '4px' }}>
+          <Grid container sx={{ margin: '10px' }}>
             <Grid item xs={12} md={6}>
               <img
                 src={product.image}
                 alt={product.name}
-                style={{ maxWidth: "90%", height: "auto", marginTop: "4px" }}
+                style={{ maxWidth: '90%', height: 'auto', marginTop: '4px' }}
               />
             </Grid>
             <Grid item md={6} padding={4}>
@@ -47,7 +48,7 @@ const ProductScreen = () => {
                 gutterBottom
                 variant="h5"
                 component="div"
-                style={{ color: "inherit" }}
+                style={{ color: 'inherit' }}
               >
                 {product.name}
               </Typography>
@@ -55,7 +56,7 @@ const ProductScreen = () => {
                 gutterBottom
                 variant="body2"
                 color="text.secondary"
-                sx={{ maxHeight: "6em" }}
+                sx={{ maxHeight: '6em' }}
               >
                 {product.description}
               </Typography>
@@ -67,7 +68,7 @@ const ProductScreen = () => {
                   precision={0.5}
                 />
                 <Typography variant="body3" color="text.secondary" ml={3}>
-                  {" "}
+                  {' '}
                   {product.numReviews} reviews
                 </Typography>
               </Box>
@@ -78,8 +79,8 @@ const ProductScreen = () => {
               <Box display="flex" alignItems="center" gutterBottom>
                 <Typography variant="h6"> Status: </Typography>
                 <Typography variant="h7" ml={3}>
-                  {" "}
-                  {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
+                  {' '}
+                  {product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}
                 </Typography>
               </Box>
 
@@ -88,7 +89,7 @@ const ProductScreen = () => {
                   disabled={product.countInStock < 1}
                   onClick={addToCartHandler}
                 >
-                  {" "}
+                  {' '}
                   Add to Cart
                 </Button>
                 {product.countInStock > 0 && (

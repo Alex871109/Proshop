@@ -33,43 +33,48 @@ const Header = () => {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: 'none', md: 'flex'},
-             
+              display: { xs: 'none', md: 'flex' },
             }}
           >
-            <Link to={"/"} style={{ textDecoration: 'none', color: 'white', display: 'flex' }}>
-            <ShopIcon
-              sx={{
-                fontSize: '2rem',
-                display: {
-                  xs: 'none',
-                  md: 'flex',
-                  justifyContent: 'flex-start',
-                },
-                mr: 1,
-              }}
-            />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              
-              sx={{
-                mr: 2,
-                display: {
-                  xs: 'none',
-                  md: 'flex',
-                  justifyContent: 'flex-start',
-                },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
+            <Link
+              to={'/'}
+              style={{
                 textDecoration: 'none',
+                color: 'white',
+                display: 'flex',
               }}
             >
-              Proshop
-            </Typography>
+              <ShopIcon
+                sx={{
+                  fontSize: '2rem',
+                  display: {
+                    xs: 'none',
+                    md: 'flex',
+                    justifyContent: 'flex-start',
+                  },
+                  mr: 1,
+                }}
+              />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                sx={{
+                  mr: 2,
+                  display: {
+                    xs: 'none',
+                    md: 'flex',
+                    justifyContent: 'flex-start',
+                  },
+                  fontFamily: 'monospace',
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'inherit',
+                  textDecoration: 'none',
+                }}
+              >
+                Proshop
+              </Typography>
             </Link>
             <Box
               sx={{
@@ -77,11 +82,17 @@ const Header = () => {
                 display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' },
               }}
             >
-              <Link to={"/cart"} style={{ textDecoration: 'none', color: 'white' }}>
-              <ShoppingCartIcon sx={{ mr: 4 }} />
+              <Link
+                to={'/cart'}
+                style={{ textDecoration: 'none', color: 'white' }}
+              >
+                <ShoppingCartIcon sx={{ mr: 4 }} />
               </Link>
-              <Link to={"/login"} style={{ textDecoration: 'none', color: 'white'}}>
-              <PersonIcon />
+              <Link
+                to={'/login'}
+                style={{ textDecoration: 'none', color: 'white' }}
+              >
+                <PersonIcon />
               </Link>
             </Box>
           </Box>
@@ -89,33 +100,46 @@ const Header = () => {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: 'flex', md: 'none', justifyContent: 'flex-end' },
+              display: {
+                xs: 'flex',
+                md: 'none',
+                justifyContent: 'space-between',
+              },
             }}
           >
-            <ShopIcon
-              sx={{
-                fontSize: '2rem',
-                display: { xs: 'flex', md: 'none' },
-                mr: 1,
-              }}
-            />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
+            <Link
+              to={'/'}
+              style={{
                 textDecoration: 'none',
+                color: 'white',
+                display: 'flex',
               }}
             >
-              Proshop
-            </Typography>
+              <ShopIcon
+                sx={{
+                  fontSize: '2rem',
+                  display: { xs: 'flex', md: 'none' },
+                  mr: 1,
+                }}
+              />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                sx={{
+                  mr: 2,
+                  display: { xs: 'flex', md: 'none' },
+                  flexGrow: 1,
+                  fontFamily: 'monospace',
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'inherit',
+                  textDecoration: 'none',
+                }}
+              >
+                Proshop
+              </Typography>
+            </Link>
 
             <IconButton
               size="large"
