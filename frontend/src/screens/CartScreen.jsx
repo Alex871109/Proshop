@@ -1,10 +1,19 @@
 import CartItem from '../components/CartItem';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Grid, Typography } from '@mui/material';
 
 const CartScreen = () => {
   const { cartItems } = useSelector((state) => state.cart);
-  console.log('cartItemns: ', cartItems);
+
+  const { totalQty, totalPrice } = cartItems.reduce(
+    (acc, item) => {
+      return {
+        totalQty: acc.totalQty + item.qty,
+        totalPrice: acc.totalPrice + item.price * item.qty,
+      };
+    },
+    { totalQty: 0, totalPrice: 0 }
+  );
   return (
     <>
       <Typography
@@ -33,7 +42,7 @@ const CartScreen = () => {
             component="div"
             style={{ color: 'inherit' }}
           >
-            Subtotal (5 items): $2,299.95
+            Subtotal ({totalQty} items): €{totalPrice}
           </Typography>
         </Grid>
       </Grid>
