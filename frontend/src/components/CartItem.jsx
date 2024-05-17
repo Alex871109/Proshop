@@ -15,13 +15,13 @@ const CartItem = ({ product }) => {
   };
 
   return (
-    <Box>
+    <Box borderBottom={2}  >
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
           <img
             src={product.image}
             alt={product.name}
-            style={{ maxWidth: '90%', height: 'auto', marginTop: '4px' }}
+            style={{ maxWidth: '100%', height: 'auto', marginTop: '4px' }}
           />
         </Grid>
         <Grid item xs={12} md={8}>
@@ -29,7 +29,7 @@ const CartItem = ({ product }) => {
             gutterBottom
             variant="h5"
             component="div"
-            style={{ color: 'inherit' }}
+            sx={{ color: 'inherit' }}
           >
             {product.name}
           </Typography>
@@ -54,8 +54,8 @@ const CartItem = ({ product }) => {
             </Typography>
           </Box>
 
-          <Box display="flex" alignItems="center" mt={2}>
-            <Typography variant="body2" color="text.secondary" mt={2} mr={2}>
+          <Box display="flex" alignItems="center" alignContent={"space-between"} mt={2}>
+            <Typography variant="h6" color="text.secondary" sx={{ color: 'inherit' }}  mt={2} mr={2}>
               €{product.price}
             </Typography>
             <QuantitySelect

@@ -19,14 +19,14 @@ const QuantitySelect = ({quantity, setValue , value}) => {
     menuItems.push(<MenuItem key={i} value={i}>{i}</MenuItem>);
   }
     return (
-      <Box sx={{ minWidth: 80 }}>
+      <Box sx={{ minWidth: 50 }}>
         <FormControl fullWidth>
-          <InputLabel id="quantity-select">Quantity</InputLabel>
+          <InputLabel id="quantity-select">Qty</InputLabel>
           <Select
             value={value}
-            label="Quantity"
+            label="Qty"
             onChange={handleChange}
-            sx={{ minHeight: 'unset', maxHeight: '50px' }}
+            sx={{ minHeight: 'unset', maxHeight: '35px' }}
           >
             {menuItems}
 
