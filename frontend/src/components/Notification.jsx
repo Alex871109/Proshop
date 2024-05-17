@@ -6,11 +6,14 @@ const Notification = ({ message, type }) => {
       sx={{
         display: 'flex',
         alignItems: 'top',
-        justifyContent: 'center',
-        minHeight: '80vh',
+        justifyContent: 'right',
       }}
     >
-      <Alert variant="filled" severity={type}  sx={{position: 'absolute',}}>
+      <Alert
+        variant="filled"
+        severity={type}
+        sx={{ position: 'fixed', top: 0, right: 0, zIndex: 9999 }}
+      >
         {message}
       </Alert>
     </Box>
