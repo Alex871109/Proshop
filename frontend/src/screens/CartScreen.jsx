@@ -1,19 +1,13 @@
 import CartItem from '../components/CartItem';
 import { useSelector } from 'react-redux';
 import { Grid, Typography } from '@mui/material';
+import { useCartTotals } from '../hooks/useCartTotals';
 
 const CartScreen = () => {
   const { cartItems } = useSelector((state) => state.cart);
 
-  const { totalQty, totalPrice } = cartItems.reduce(
-    (acc, item) => {
-      return {
-        totalQty: acc.totalQty + item.qty,
-        totalPrice: acc.totalPrice + item.price * item.qty,
-      };
-    },
-    { totalQty: 0, totalPrice: 0 }
-  );
+  const { totalQty, totalPrice } = useCartTotals(cartItems);
+
   return (
     <>
       <Typography
