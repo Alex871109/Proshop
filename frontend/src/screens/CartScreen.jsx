@@ -1,6 +1,7 @@
 import CartItem from '../components/CartItem';
 import { useSelector } from 'react-redux';
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { useCartTotals } from '../hooks/useCartTotals';
 
 const CartScreen = () => {
@@ -22,6 +23,11 @@ const CartScreen = () => {
       >
         Shopping Cart
       </Typography>
+      <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Button variant="contained" color="inherit" sx={{ margin: '5px 0' }}>
+          Go Back
+        </Button>
+      </Link>
       <Grid container>
         <Grid item xs={12} md={8}>
           {cartItems.map((item) => {
@@ -38,6 +44,11 @@ const CartScreen = () => {
           >
             Subtotal ({totalQty} items): €{totalPrice}
           </Typography>
+          <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Button variant="contained" color="primary">
+              Proceed to checkout
+            </Button>
+          </Link>
         </Grid>
       </Grid>
     </>
