@@ -11,7 +11,6 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(productsApiSlice.middleware);
-    //   .concat(surveysApi.middleware);
   },
 });
 

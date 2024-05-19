@@ -2,7 +2,7 @@ import { Box, Grid, Typography, Rating, Button } from '@mui/material';
 import { useState } from 'react';
 import QuantitySelect from './QuantitySelect';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../store';
+import { addToCart, removeFromCart } from '../store';
 
 const CartItem = ({ product }) => {
   const [quantity, setQuantity] = useState(product.qty);
@@ -14,8 +14,13 @@ const CartItem = ({ product }) => {
     dispatch(addToCart({ ...product, qty: qtySelected }));
   };
 
+  const deleteHandler = () => {
+    console.log('delete');
+    dispatch(removeFromCart(product._id));
+  };
+
   return (
-    <Box borderBottom={2}  >
+    <Box borderBottom={2}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
           <img
@@ -54,8 +59,19 @@ const CartItem = ({ product }) => {
             </Typography>
           </Box>
 
-          <Box display="flex" alignItems="center" alignContent={"space-between"} mt={2}>
-            <Typography variant="h6" color="text.secondary" sx={{ color: 'inherit' }}  mt={2} mr={2}>
+          <Box
+            display="flex"
+            alignItems="center"
+            alignContent={'space-between'}
+            mt={2}
+          >
+            <Typography
+              variant="h6"
+              color="text.secondary"
+              sx={{ color: 'inherit' }}
+              mt={2}
+              mr={2}
+            >
               €{product.price}
             </Typography>
             <QuantitySelect
@@ -63,7 +79,9 @@ const CartItem = ({ product }) => {
               value={quantity}
               setValue={setQtyHandler}
             />
-            <Button> Delete </Button>
+            <Box sx={{ marginLeft: 'auto' }}>
+              <Button onClick={deleteHandler}> Delete </Button>
+            </Box>
           </Box>
         </Grid>
       </Grid>

@@ -26,9 +26,13 @@ const cartSlice = createSlice({
       localStorage.setItem('cart', JSON.stringify(state));
     },
 
+    //payload is the object's id
     removeFromCart(state, action) {
       const idToRemove = action.payload;
-      state.cartItems.filter((i) => i._id !== idToRemove);
+      console.log('idToRemove: ', idToRemove);
+      state.cartItems = state.cartItems.filter((i) => i._id !== idToRemove);
+      console.log('state.cartItems : ', state.cartItems);
+
       localStorage.setItem('cart', JSON.stringify(state));
     },
   },
