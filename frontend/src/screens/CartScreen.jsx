@@ -44,7 +44,7 @@ const CartScreen = () => {
           >
             Subtotal ({totalQty} items): €{totalPrice}
           </Typography>
-          <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link to={'/checkout'} style={{ textDecoration: 'none', color: 'inherit' }}>
             <Button variant="contained" color="primary">
               Proceed to checkout
             </Button>
